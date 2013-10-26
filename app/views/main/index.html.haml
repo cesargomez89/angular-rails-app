@@ -1,1 +1,11 @@
-hello
+!!!
+%html{"ng-app" => "angularRails"}
+  %head
+    %title Blog
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application", controller_name
+    = csrf_meta_tags
+  %body
+    = yield
+    .container(ng-view)
+    %p huhu

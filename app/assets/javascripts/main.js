@@ -1,8 +1,8 @@
-var angularRails = angular.module('angularRails',[])
+var angularRails = angular.module('angularRails',[]);
 
-angularRails.config(['$routeProvider', ($routeProvider) ->
-  $routeProvider
-  .when('/post', { templateUrl: '../assets/mainPost.html', controller: 'PostCtrl' } )
-  .otherwise({ templateUrl: '../assets/mainIndex.html', controller: 'IndexCtrl' } )
-
-])
+angularRails.config(function($httpProvider){
+  angular.forEach(['post', 'put', 'delete'], function(method){
+    $httpProvider.defaults.headers[method] = $httpProvider.defaults.headers[method] || {};
+    $httpProvider.defaults.headers[method]['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+  });
+});
