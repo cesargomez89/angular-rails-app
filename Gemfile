@@ -11,6 +11,10 @@ gem 'decent_exposure'
 gem 'haml_rails'
 gem 'haml'
 gem 'html2haml'
+
+# Heroku stuff
+gem 'rails_12factor', group: :production
+gem 'pg'
 gem 'newrelic_rpm'
 
 group :doc do
